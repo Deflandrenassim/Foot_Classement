@@ -1,29 +1,29 @@
 import React from 'react'
 import axios from 'axios';
 import {useEffect, useState} from 'react';
-import './England.css';
+import './French.css';
 
-export const England = () => {
-    const [apiMatch , setApiMatch] = useState(null);
+export const French = () => {
+    const [apiMatchFrench , setApiMatchFrench] = useState(null);
     useEffect(() => {
-      axios.get('http://localhost:8080/premiereleague?league=premiereleague')
+      axios.get('http://localhost:8080/ligue1?league=ligue1')
       .then((response ) => {
         console.log(response);
-        setApiMatch(response.data);
+        setApiMatchFrench(response.data);
       })
         
        }, []);
     return (
       <div className="App">
         
-        {apiMatch ?
+        {apiMatchFrench ?
           ( 
           <div>
-            <img src={apiMatch.sports_results.thumbnail} alt="premiere league"/>
+            <img src={apiMatchFrench.sports_results.thumbnail} alt="ligue 1 "/>
   
-          <h1>{apiMatch.sports_results.title}</h1>
+          <h1>{apiMatchFrench.sports_results.title}</h1>
          
-            {apiMatch.sports_results.games.map(( game ) => (
+            {apiMatchFrench.sports_results.games.map(( game ) => (
               <ul>
                 <span>{game.time }</span>
                 {
@@ -41,11 +41,10 @@ export const England = () => {
           )
           : 
           (
-          <div> No games ce week-end </div> 
+          <div> Loading... </div> 
           )
         }
       
       </div>
     );
 }
-
