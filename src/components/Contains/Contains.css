@@ -1,0 +1,16 @@
+.contains{
+    background-color: aqua;
+    list-style: none;
+}
+.contains.appareance{
+    background-color: rgb(43, 143, 143);
+    list-style: none;
+}
+.contains_card{
+    border: solid;
+}
+.containsInformation{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

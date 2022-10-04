@@ -1,6 +1,9 @@
 import React from 'react'
 import axios from 'axios';
 import {useEffect, useState} from 'react';
+import { Contains, ContainsCard, ContainsInformation, ContainsPicture, ContainsName, 
+  ContainsScore
+} from '../../components/Contains/Contains';
 import './England.css';
 
 export const England = () => {
@@ -18,26 +21,26 @@ export const England = () => {
         
         {apiMatch ?
           ( 
-          <div>
+            <Contains>
             <img src={apiMatch.sports_results.thumbnail} alt="premiere league"/>
   
           <h1>{apiMatch.sports_results.title}</h1>
-         
             {apiMatch.sports_results.games.map(( game ) => (
-              <ul>
-                <span>{game.time }</span>
+              <ContainsCard>
                 {
                 game.teams.map(( team ) => (
-                  <li> {team.name}
-                    <img src={team.thumbnail} alt="" />
-                   </li>
+                    <ContainsInformation> 
+                    <ContainsPicture src={team.thumbnail} alt={team.name}/>
+                    <ContainsName> {team.name}</ContainsName>
+                    <ContainsScore> {team.score} </ContainsScore>
+                   </ContainsInformation>
                  
                 ))}
-              </ul>
+              </ContainsCard>
             )
           )   
                 }
-          </div>
+          </Contains>
           )
           : 
           (

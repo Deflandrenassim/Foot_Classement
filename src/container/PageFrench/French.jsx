@@ -1,6 +1,9 @@
 import React from 'react'
 import axios from 'axios';
 import {useEffect, useState} from 'react';
+import { Contains, ContainsCard, ContainsInformation, ContainsPicture, ContainsName, 
+  ContainsScore
+} from '../../components/Contains/Contains';
 import './French.css';
 
 export const French = () => {
@@ -16,35 +19,35 @@ export const French = () => {
     return (
       <div className="App">
         
-        {apiMatchFrench ?
-          ( 
-          <div>
-            <img src={apiMatchFrench.sports_results.thumbnail} alt="ligue 1 "/>
-  
-          <h1>{apiMatchFrench.sports_results.title}</h1>
-         
-            {apiMatchFrench.sports_results.games.map(( game ) => (
-              <ul>
-                <span>{game.time }</span>
-                {
-                game.teams.map(( team ) => (
-                  <li> {team.name}
-                    <img src={team.thumbnail} alt="" />
-                   </li>
-                 
-                ))}
-              </ul>
-            )
-          )   
-                }
-          </div>
+      {apiMatchFrench ?
+        ( 
+          <Contains >
+          <img src={apiMatchFrench.sports_results.thumbnail} alt="premiere league"/>
+
+        <h1>{apiMatchFrench.sports_results.title}</h1>
+          {apiMatchFrench.sports_results.games.map(( game ) => (
+            <ContainsCard>
+              {
+              game.teams.map(( team ) => (
+                  <ContainsInformation appareance="appareance"> 
+                  <ContainsPicture src={team.thumbnail} alt={team.name}/>
+                  <ContainsName> {team.name}</ContainsName>
+                  <ContainsScore> {team.score} </ContainsScore>
+                 </ContainsInformation>
+               
+              ))}
+            </ContainsCard>
           )
-          : 
-          (
-          <div> Loading... </div> 
-          )
-        }
-      
-      </div>
+        )   
+              }
+        </Contains>
+        )
+        : 
+        (
+        <div> loading... </div> 
+        )
+      }
+    
+    </div>
     );
 }
