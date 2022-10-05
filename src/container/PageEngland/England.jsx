@@ -11,20 +11,18 @@ export const England = () => {
     useEffect(() => {
       axios.get('http://localhost:8080/premiereleague?league=premiereleague')
       .then((response ) => {
-        console.log(response);
         setApiMatch(response.data);
       })
         
        }, []);
     return (
-      <div className="App">
+      <div className="england">
         
         {apiMatch ?
           ( 
             <Contains>
-            <img src={apiMatch.sports_results.thumbnail} alt="premiere league"/>
-  
-          <h1>{apiMatch.sports_results.title}</h1>
+            <img className="england_Logo"src={apiMatch.sports_results.thumbnail} alt="premiere league"/>
+              <h1> Match de ce week-end </h1>
             {apiMatch.sports_results.games.map(( game ) => (
               <ContainsCard>
                 {
@@ -34,7 +32,6 @@ export const England = () => {
                     <ContainsName> {team.name}</ContainsName>
                     <ContainsScore> {team.score} </ContainsScore>
                    </ContainsInformation>
-                 
                 ))}
               </ContainsCard>
             )
@@ -44,7 +41,7 @@ export const England = () => {
           )
           : 
           (
-          <div> No games ce week-end </div> 
+          <div> Loading.. </div> 
           )
         }
       

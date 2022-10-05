@@ -6,9 +6,8 @@ import { Link } from 'react-router-dom';
 export const Header = () => {
   return (
     <div className="header"> 
-
          <ul>
-          <li>
+          <li className="li">
             <Link to="/premiereleague">Premiere League </Link>
           </li>
           <li>

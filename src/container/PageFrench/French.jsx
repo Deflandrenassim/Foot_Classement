@@ -8,14 +8,20 @@ import './French.css';
 
 export const French = () => {
     const [apiMatchFrench , setApiMatchFrench] = useState(null);
+
     useEffect(() => {
       axios.get('http://localhost:8080/ligue1?league=ligue1')
-      .then((response ) => {
-        console.log(response);
+      .then((response) => {
         setApiMatchFrench(response.data);
       })
+
+      axios.get('http://localhost:8080/classement?ligue1?classement=classement?ligue1')
+        .then((classement) => {
+          console.log(classement);
+        })
         
        }, []);
+     
     return (
       <div className="App">
         
@@ -23,10 +29,12 @@ export const French = () => {
         ( 
           <Contains >
           <img src={apiMatchFrench.sports_results.thumbnail} alt="premiere league"/>
+          <h1> Match de ce week-end </h1>
 
-        <h1>{apiMatchFrench.sports_results.title}</h1>
+        <h1>{apiMatchFrench.sports_results.title}</h1>     
           {apiMatchFrench.sports_results.games.map(( game ) => (
             <ContainsCard>
+              <span className="date"> {game.date} </span>
               {
               game.teams.map(( team ) => (
                   <ContainsInformation appareance="appareance"> 

@@ -1,3 +1,15 @@
 .header{
-display: flex;
+    margin: 0px;
+    background-color: beige;
+}
+
+ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
+    list-style: none; 
+}
+li{
+    padding: 10px;
 }
