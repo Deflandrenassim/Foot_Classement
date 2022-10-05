@@ -1,7 +1,9 @@
 import React from 'react'
 import axios from 'axios';
-import {useEffect, useState} from 'react';
-import { Contains, ContainsCard, ContainsInformation, ContainsPicture, ContainsName, 
+import { useEffect, useState } from 'react';
+import { Loading } from '../../components/loading/Loading';
+import {
+  Contains, ContainsCard, ContainsInformation, ContainsPicture, ContainsName,
   ContainsScore
 } from '../../components/Contains/Contains';
 import './England.css';
@@ -35,17 +37,20 @@ export const England = () => {
                 ))}
               </ContainsCard>
             )
-          )   
-                }
+            )
+            }
           </Contains>
-          )
-          : 
-          (
-          <div> Loading.. </div> 
-          )
-        }
-      
-      </div>
-    );
+        )
+        :
+        (
+          <div>
+            <Loading />
+          </div>
+        )
+      }
+
+    </div>
+  );
+
 }
 
