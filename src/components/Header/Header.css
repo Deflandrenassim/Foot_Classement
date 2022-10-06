@@ -1,13 +1,14 @@
 .header{
-    margin: 0px;
-    background-color: beige;
+    background-color: #7287dbad;
+    position: fixed;
+    width: 100%;
 }
-
 ul{
     display: flex;
     flex-direction: row;
     justify-content: center;
     padding: 10px;
+    margin: 0px;
     list-style: none; 
 }
 li{

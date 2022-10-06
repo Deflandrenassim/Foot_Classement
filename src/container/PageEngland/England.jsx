@@ -19,14 +19,22 @@ export const England = () => {
        }, []);
     return (
       <div className="england">
-        
         {apiMatch ?
           ( 
             <Contains>
             <img className="england_Logo"src={apiMatch.sports_results.thumbnail} alt="premiere league"/>
-              <h1> Match de ce week-end </h1>
+              <h1 className="title"> Match de ce week-end :</h1>
             {apiMatch.sports_results.games.map(( game ) => (
               <ContainsCard>
+                 <ContainsInformation>
+                {game.date}
+                </ContainsInformation>
+                <ContainsInformation>
+                {game.stadium} 
+                </ContainsInformation>
+                <ContainsInformation>
+                {game.time}
+                </ContainsInformation>
                 {
                 game.teams.map(( team ) => (
                     <ContainsInformation> 

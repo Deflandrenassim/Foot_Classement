@@ -1,7 +1,6 @@
 .contains{
     padding-left: 100px;
     padding-right: 100px;
-    
     list-style: none;
 }
 .contains_name{
@@ -15,16 +14,21 @@
     list-style: none;
 }
 .contains_card{
+    width: 500px;
     border: solid;
-    background-color: aqua;
+    background-color: rgb(117, 198, 198);
 }
 .contains_information{
     display: flex;
     flex-direction: unset;
     justify-content: space-evenly;
     align-items: center;
+    padding: 0px;
 }
+
 .contains_picture{
     display: flex;
     align-items: center;
+    justify-content: center;
+    height: 40px;
 }

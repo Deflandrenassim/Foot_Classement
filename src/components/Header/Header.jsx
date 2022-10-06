@@ -14,7 +14,7 @@ export const Header = () => {
             <Link to="/ligue1">Ligue 1 </Link>
           </li>
           <li>
-            <Link to="/topics">Liga </Link>
+            <Link to="/liga">Liga </Link>
           </li>
         </ul>
     </div>
